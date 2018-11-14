@@ -1,0 +1,20 @@
+{
+  "name": "parking-classify",
+  "version": "2.0.0",
+  "description": "classify parkingDatas",
+  "main": "index.js",
+  "dependencies": {
+    "later": "^1.2.0",
+    "log4js": "^3.0.6",
+    "moment": "^2.22.2",
+    "mongoose": "^5.3.9",
+    "mqtt": "^2.18.8",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "zhouqh",
+  "license": "ISC"
+}
