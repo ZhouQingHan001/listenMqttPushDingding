@@ -6,7 +6,7 @@ log4mqtt.level = "debug";
 
 const URL = "ws://106.14.142.169:8083/mqtt";
 const clientId = "CLASSIFY" + Date.now();
-const TOPIC = ["/standard/kangkang/"];
+const TOPIC = ["/standard/kangkang/", "/standard/carflow/#"];
 
 const client = mqtt
   .connect(
