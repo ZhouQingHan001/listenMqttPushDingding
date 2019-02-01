@@ -1,4 +1,5 @@
 const Parkingspaces = require("../mongo/Parkingspaces");
+const MoteDevices = require("../mongo/MoteDevices");
 const log4js = require("log4js");
 const { dingding_KangKang } = require("../dingding/robots");
 const log4TMoteInfo = log4js.getLogger("log4TMoteInfo");
@@ -48,6 +49,13 @@ const findParkinglot = SN => {
 
 const reBoot = async (SN, TOPIC, TMoteInfo) => {
   const { Hard, Boot } = TMoteInfo;
+  let info = await MoteDevices.findOne({ SN: SN });
+  let _Boot = 0;
+  if (info) _Boot = info.Boot;
+  if (_Boot && _Boot === Boot) {
+    // console.log("每周上报静态Boot包，不是重启");
+    return;
+  }
   let rfFlag = Hard.indexOf("RF") > 0 || Hard.indexOf("rf") > 0;
   let BootFlag = Boot.substr(0, 1);
   let softRebootflag = Boot.match(/[.]/g).length; //如果有两个.说明要对软件重启分类
